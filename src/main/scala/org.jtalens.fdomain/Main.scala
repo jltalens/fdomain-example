@@ -5,7 +5,6 @@ import fs2.StreamApp
 import org.http4s.server.blaze.BlazeBuilder
 import org.jtalens.fdomain.router.AccountRouter
 
-import scala.language.higherKinds
 object Main extends StreamApp[IO] {
 
   implicit val ec = scala.concurrent.ExecutionContext.global

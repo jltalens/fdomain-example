@@ -6,15 +6,15 @@ import cats.free.Free
 
 sealed trait AccountSummaryAlgF[A]
 
-case class Save(accountSummary: AccountSummary) extends AccountSummaryAlgF[Option[AccountSummary]]
-case class FindById(userId: UserID) extends AccountSummaryAlgF[Option[AccountSummary]]
+case class Save(accountSummary: AccountSummary) extends AccountSummaryAlgF[Either[String, AccountSummary]]
+case class FindById(userId: UserID) extends AccountSummaryAlgF[Either[String, AccountSummary]]
 case class FindByStatus(status: AccountStatus.Value) extends AccountSummaryAlgF[Iterable[AccountSummary]]
 
 trait AccountSummaryAlg {
-  def save(accountSummary: AccountSummary): FreeF[Option[AccountSummary]] =
+  def save(accountSummary: AccountSummary): FreeF[Either[String, AccountSummary]] =
     Free.liftF(Save(accountSummary))
 
-  def findById(userId: UserID): FreeF[Option[AccountSummary]] =
+  def findById(userId: UserID): FreeF[Either[String, AccountSummary]] =
     Free.liftF(FindById(userId))
 
   def findByStatus(status: AccountStatus.Value): FreeF[Iterable[AccountSummary]] =

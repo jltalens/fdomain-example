@@ -12,19 +12,19 @@ object AccountSummaryServiceFile extends AccountSummaryService {
   def accountSummary(userId: UserID): IO[Either[String, AccountSummary]] = {
     val parsingResult = Try(Source.fromResource("account_summary.json").mkString) match {
       case Failure(ex) => Left(ex.getMessage)
-      case Success(f) => decodeAccountSummary(f)
+      case Success(f) => decodeAccountSummary(f)(userId)
     }
     IO(parsingResult)
   }
 
-  private def decodeAccountSummary(content: String): Either[String, AccountSummary] =
+  private def decodeAccountSummary(content: String)(userID: UserID): Either[String, AccountSummary] =
     parse(content)
       .map(json => json.as[AccountSummary])
       .fold(
         parsingFailure => Left(parsingFailure.message),
         decoderResult => decoderResult.fold(
           decodingFailure => Left(decodingFailure.getMessage()),
-          result => Right(result)
+          result => Right(result.copy(userId = userID))
         )
       )
 }
