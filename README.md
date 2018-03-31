@@ -1,19 +1,19 @@
-### Functional domain modelling example
+# Functional domain modelling example
 
 This is just me learning some domain modelling the functional way with:
 
-* [http4s|
-* fs2
-* Free monads with cats
+* [http4s](https://http4s.org/)
+* [fs2](https://functional-streams-for-scala.github.io/fs2/)
+* [Free monads with cats](https://typelevel.org/cats/)
 
 For now it just exposes and endpoint with a canned response.
 
-# Running it
+### Running it
 ```
 # sbt run
 ```
 
-# API
+### API
 
 ```
 # curl http://localhost:8888/api/domain-example/101
