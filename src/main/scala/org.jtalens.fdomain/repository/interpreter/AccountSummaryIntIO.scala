@@ -4,8 +4,6 @@ import java.time.LocalDateTime
 
 import cats.effect.IO
 import cats.~>
-import io.circe.parser.parse
-import org.jtalens.fdomain.model.AccountSummary
 import org.jtalens.fdomain.repository._
 import org.jtalens.fdomain.services.AccountSummaryService
 
@@ -24,12 +22,4 @@ object AccountSummaryIntIO extends Interpreter[IO] {
       case FindByStatus(accountStatus) => IO(Seq.empty)
     }
   }
-
-  private def decodeAccountSummary(content: String): Option[AccountSummary] =
-    parse(content)
-      .map(json => json.as[AccountSummary])
-    .fold(
-      _ => None,
-      decoderResult => decoderResult.toOption
-    )
 }
