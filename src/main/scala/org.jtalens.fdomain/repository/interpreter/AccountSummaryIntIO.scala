@@ -24,12 +24,4 @@ object AccountSummaryIntIO extends Interpreter[IO] {
       case FindByStatus(accountStatus) => IO(Seq.empty)
     }
   }
-
-  private def decodeAccountSummary(content: String): Option[AccountSummary] =
-    parse(content)
-      .map(json => json.as[AccountSummary])
-    .fold(
-      _ => None,
-      decoderResult => decoderResult.toOption
-    )
 }

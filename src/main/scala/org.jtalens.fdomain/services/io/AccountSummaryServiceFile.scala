@@ -9,10 +9,15 @@ import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
 object AccountSummaryServiceFile extends AccountSummaryService {
+
+  import org.jtalens.fdomain.implicits.ThrowableExtension._
+
   def accountSummary(userId: UserID): IO[Either[String, AccountSummary]] = {
     val parsingResult = Try(Source.fromResource("account_summary.json").mkString) match {
-      case Failure(ex) => Left(ex.getMessage)
-      case Success(f) => decodeAccountSummary(f)(userId)
+      case Failure(ex) =>
+        Left(ex.throwToString)
+      case Success(f) =>
+        decodeAccountSummary(f)(userId)
     }
     IO(parsingResult)
   }
