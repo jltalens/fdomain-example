@@ -19,15 +19,12 @@ object AccountRouter {
   val httpRoutes: HttpService[IO] =
     HttpService[IO] {
       case GET -> Root / "api" / "domain-example" / userId =>
-        for {
-          accountSummary <-
-            findById(UserID(userId))
-              .foldMap(AccountSummaryIntIO.compiler(AccountSummaryServiceFile))
-          resp <- accountSummary match {
+        findById(UserID(userId))
+          .foldMap(AccountSummaryIntIO.compiler(AccountSummaryServiceFile))
+          .flatMap {
             case Left(error) => BadRequest(error)
             case Right(summary) => Ok(summary)
           }
-        } yield resp
     }
 }
 

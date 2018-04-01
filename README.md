@@ -10,7 +10,8 @@ For now it just exposes and endpoint with a canned response.
 
 ### Running it
 ```
-# sbt run
+# sbt
+# reStart
 ```
 
 ### API
