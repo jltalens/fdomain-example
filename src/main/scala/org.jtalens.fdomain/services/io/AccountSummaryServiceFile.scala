@@ -1,14 +1,13 @@
 package org.jtalens.fdomain.services.io
 
 import cats.effect.IO
-import io.circe.parser._
 import org.jtalens.fdomain.model.{ AccountSummary, UserID }
 import org.jtalens.fdomain.services.AccountSummaryService
 
 import scala.io.Source
 import scala.util.{ Failure, Success, Try }
 
-object AccountSummaryServiceFile extends AccountSummaryService {
+object AccountSummaryServiceFile extends AccountSummaryService with AccountSummaryParsers {
 
   import org.jtalens.fdomain.implicits.ThrowableExtension._
 
@@ -17,17 +16,9 @@ object AccountSummaryServiceFile extends AccountSummaryService {
       case Failure(ex) =>
         Left(ex.throwToString)
       case Success(f) =>
-        decodeAccountSummary(f)(userId)
+        fromString(f)(userId)
     }
     IO(parsingResult)
   }
-
-  private def decodeAccountSummary(content: String)(userID: UserID): Either[String, AccountSummary] =
-    parse(content)
-      .map(json => json.as[AccountSummary])
-      .fold(
-        parsingFailure => Left(parsingFailure.message),
-        decoderResult => decoderResult.fold(
-          decodingFailure => Left(decodingFailure.getMessage()),
-          result => Right(result.copy(userId = userID))))
 }
+

@@ -1,14 +1,14 @@
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import scalariform.formatter.preferences._
 
-lazy val appVersion = "0.1"
+lazy val appVersion = "0.1.0-SNAPSHOT"
 
 lazy val scalaV = "2.12.4"
 
 lazy val scalaC = "-Ypartial-unification"
 
 val Versions = new {
-  val cats = "1.0.1"
+  val cats = "1.1.0"
   val monix = "3.0.0-M3"
   val http4s = "0.18.3"
   val circe = "0.9.1"
@@ -31,12 +31,17 @@ lazy val deps = Seq(
   "co.fs2" %% "fs2-io" % Versions.fs2
 )
 
+lazy val testDeps = Seq(
+  "org.specs2" %% "specs2-core" % "4.0.2" % Test
+)
+
 lazy val `fdomain-example` = (project in file("."))
   .settings(
     name := "fdomain-example",
     scalaVersion := scalaV,
     version := appVersion,
     scalacOptions += scalaC,
+    scalacOptions in Test ++= Seq("-Yrangepos"),
     ScalariformKeys.preferences := PreferencesImporterExporter.loadPreferences((file(".") / "formatter.preferences").getPath),
-    libraryDependencies ++= deps
+    libraryDependencies ++= deps ++ testDeps
   )
