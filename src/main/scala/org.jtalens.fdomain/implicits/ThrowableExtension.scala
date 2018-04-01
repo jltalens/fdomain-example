@@ -1,6 +1,6 @@
 package org.jtalens.fdomain.implicits
 
-import java.io.{PrintWriter, StringWriter}
+import java.io.{ PrintWriter, StringWriter }
 
 object ThrowableExtension {
 

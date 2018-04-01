@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="fdomain-example-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="SUB:DOLLAR6b598bb2d1730702dd3e.`fdomainSUB:DOLLARminusexample`, _root_.sbt.Keys._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.spray.revolver.RevolverPlugin, _root_.coursier.CoursierPlugin, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}, _root_.spray.revolver.RevolverPlugin.autoImport._, _root_.coursier.CoursierPlugin.autoImport._" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, file:/home/jltalens/.sbt/preloaded|maven|local-preloaded, /home/jltalens/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
+<module external.linked.project.id="fdomain-example-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="SUB:DOLLAR646df6e84a862165f74a.`fdomainSUB:DOLLARminusexample`, _root_.org.ensime.EnsimeCoursierPlugin.autoImport._, _root_.org.ensime.EnsimeExtrasPlugin.autoImport._, _root_.org.ensime.EnsimePlugin.autoImport._, _root_.spray.revolver.RevolverPlugin.autoImport._, _root_.com.typesafe.sbt.SbtScalariform.autoImport._, _root_.sbt.Keys._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.org.ensime.EnsimeCoursierPlugin, _root_.org.ensime.EnsimeExtrasPlugin, _root_.org.ensime.EnsimePlugin, _root_.spray.revolver.RevolverPlugin, _root_.com.typesafe.sbt.SbtScalariform, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, file:/home/jltalens/.sbt/preloaded|maven|local-preloaded, /home/jltalens/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../../project/target/idea-classes" />
     <output-test url="file://$MODULE_DIR$/../../project/target/idea-test-classes" />
@@ -14,17 +14,13 @@
     <orderEntry type="module-library">
       <library name="sbt: sbt-and-plugins">
         <CLASSES>
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.dwijnand/sbt-compat/scala_2.12/sbt_1.0/1.2.2/jars/sbt-compat.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.spray/sbt-revolver/scala_2.12/sbt_1.0/0.9.1/jars/sbt-revolver.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/coursier-cache_2.12/1.0.1/coursier-cache_2.12-1.0.1.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/coursier-extra_2.12/1.0.1/coursier-extra_2.12-1.0.1.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/coursier_2.12/1.0.1/coursier_2.12-1.0.1.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/sbt-coursier_2.12_1.0/1.0.1/sbt-coursier-1.0.1.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/sbt-shared_2.12_1.0/1.0.1/sbt-shared-1.0.1.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalaz/scalaz-concurrent_2.12/7.2.16/scalaz-concurrent_2.12-7.2.16.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalaz/scalaz-core_2.12/7.2.16/scalaz-core_2.12-7.2.16.jar!/" />
-          <root url="jar://$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.12/7.2.16/scalaz-effect_2.12-7.2.16.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.0.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scalariform/scalariform_2.12/jars/scalariform_2.12-0.2.5.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/com.dwijnand/sbt-compat/jars/sbt-compat-1.0.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/io.spray/sbt-revolver/jars/sbt-revolver-0.9.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.ensime/sbt-ensime/jars/sbt-ensime-2.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scalariform/sbt-scalariform/jars/sbt-scalariform-1.8.2.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/jline.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-compiler.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-library.jar!/" />

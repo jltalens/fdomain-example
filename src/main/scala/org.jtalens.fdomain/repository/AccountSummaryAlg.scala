@@ -3,7 +3,6 @@ package org.jtalens.fdomain.repository
 import org.jtalens.fdomain.model._
 import cats.free.Free
 
-
 sealed trait AccountSummaryAlgF[A]
 
 case class Save(accountSummary: AccountSummary) extends AccountSummaryAlgF[Either[String, AccountSummary]]

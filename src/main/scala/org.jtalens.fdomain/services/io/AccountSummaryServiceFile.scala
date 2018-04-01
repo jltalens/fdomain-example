@@ -2,11 +2,11 @@ package org.jtalens.fdomain.services.io
 
 import cats.effect.IO
 import io.circe.parser._
-import org.jtalens.fdomain.model.{AccountSummary, UserID}
+import org.jtalens.fdomain.model.{ AccountSummary, UserID }
 import org.jtalens.fdomain.services.AccountSummaryService
 
 import scala.io.Source
-import scala.util.{Failure, Success, Try}
+import scala.util.{ Failure, Success, Try }
 
 object AccountSummaryServiceFile extends AccountSummaryService {
 
@@ -29,7 +29,5 @@ object AccountSummaryServiceFile extends AccountSummaryService {
         parsingFailure => Left(parsingFailure.message),
         decoderResult => decoderResult.fold(
           decodingFailure => Left(decodingFailure.getMessage()),
-          result => Right(result.copy(userId = userID))
-        )
-      )
+          result => Right(result.copy(userId = userID))))
 }

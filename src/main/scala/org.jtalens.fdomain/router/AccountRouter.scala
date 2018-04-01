@@ -4,11 +4,10 @@ import cats.effect._
 import org.http4s._
 import org.http4s.circe._
 import org.http4s.dsl.io._
-import org.jtalens.fdomain.model.{AccountSummary, UserID}
+import org.jtalens.fdomain.model.{ AccountSummary, UserID }
 import org.jtalens.fdomain.repository.AccountSummaryAlg._
 import org.jtalens.fdomain.repository.interpreter.AccountSummaryIntIO
 import org.jtalens.fdomain.services.io.AccountSummaryServiceFile
-
 
 object AccountRouter {
 
@@ -22,7 +21,7 @@ object AccountRouter {
         findById(UserID(userId))
           .foldMap(AccountSummaryIntIO.compiler(AccountSummaryServiceFile))
           .flatMap {
-            case Left(error) => BadRequest(error)
+            case Left(error)    => BadRequest(error)
             case Right(summary) => Ok(summary)
           }
     }

@@ -6,11 +6,10 @@ import io.circe.generic.semiauto._
 import io.circe.java8.time._
 
 case class AccountSummary(
-  userId: UserID,
-  status: AccountStatus.Value,
-  timestamp: Option[LocalDateTime] = Some(LocalDateTime.now()),
-  externalAccountId: Option[Long] = None
-)
+  userId:            UserID,
+  status:            AccountStatus.Value,
+  timestamp:         Option[LocalDateTime] = Some(LocalDateTime.now()),
+  externalAccountId: Option[Long]          = None)
 
 object AccountSummary {
   implicit val encodeAccountSummary: Encoder[AccountSummary] = deriveEncoder[AccountSummary]

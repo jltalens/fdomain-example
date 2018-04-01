@@ -1,3 +1,6 @@
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import scalariform.formatter.preferences._
+
 lazy val appVersion = "0.1"
 
 lazy val scalaV = "2.12.4"
@@ -26,7 +29,6 @@ lazy val deps = Seq(
   "io.circe" %% "circe-java8" % Versions.circe,
   "co.fs2" %% "fs2-core" % Versions.fs2,
   "co.fs2" %% "fs2-io" % Versions.fs2
-
 )
 
 lazy val `fdomain-example` = (project in file("."))
@@ -35,5 +37,6 @@ lazy val `fdomain-example` = (project in file("."))
     scalaVersion := scalaV,
     version := appVersion,
     scalacOptions += scalaC,
+    ScalariformKeys.preferences := PreferencesImporterExporter.loadPreferences((file(".") / "formatter.preferences").getPath),
     libraryDependencies ++= deps
   )
