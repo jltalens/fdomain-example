@@ -10,13 +10,13 @@ case class FindById(userId: UserID) extends AccountSummaryAlgF[Either[String, Ac
 case class FindByStatus(status: AccountStatus.Value) extends AccountSummaryAlgF[Iterable[AccountSummary]]
 
 trait AccountSummaryAlg {
-  def save(accountSummary: AccountSummary): FreeF[Either[String, AccountSummary]] =
+  def save(accountSummary: AccountSummary): FreeAccountSummary[Either[String, AccountSummary]] =
     Free.liftF(Save(accountSummary))
 
-  def findById(userId: UserID): FreeF[Either[String, AccountSummary]] =
+  def findById(userId: UserID): FreeAccountSummary[Either[String, AccountSummary]] =
     Free.liftF(FindById(userId))
 
-  def findByStatus(status: AccountStatus.Value): FreeF[Iterable[AccountSummary]] =
+  def findByStatus(status: AccountStatus.Value): FreeAccountSummary[Iterable[AccountSummary]] =
     Free.liftF(FindByStatus(status))
 }
 
